@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Empréstimo | CredMais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detalhes_emprestimos.css') }}">
+    <link rel="icon" type="image/png" href="../static/uploads/LogoSoloCrediMais.png"></head>
+<body>
+
+    <header class="menu">
+        <a href="{{ url_for('inicio') }}" class="marca">
+            <img src="{{ url_for('static', filename='uploads/logo.png') }}" alt="CredMais" class="logo">
+        </a>
+
+        <nav class="navegacao">
+            <a href="{{ url_for('inicio') }}">Dashboard</a>
+            <a href="#">Perfil</a>
+            <a href="#">Simulação</a>
+            <a href="{{ url_for('detalhes_emprestimos') }}">Empréstimos</a>
+            <a href="#">Movimentações</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+
+        <section class="cabecalho-pagina">
+            <img
+                src="{{ url_for('static', filename='uploads/icone-detalhes.png') }}"
+                alt=""
+                class="icone-cabecalho"
+            >
+
+            <div>
+                <h1>Detalhes do Empréstimo</h1>
+                <p>Confira abaixo as principais informações do empréstimo.</p>
+            </div>
+        </section>
+
+        <div class="botao">
+            <a href="{{ url_for('relatorio') }}" class="botao_pdf" aria-label="Baixar como PDF">
+                <img src="{{ url_for('static', filename='uploads/icone-download.png') }}" alt="" class="icone-download">
+                <span class="texto-botao">Baixar como PDF</span>
+            </a>
+        </div>
+
+        <section class="cartao-detalhes">
+
+            <div class="resumo-emprestimo">
+                <h2>Informações do empréstimo</h2>
+
+                <div class="campos-resumo">
+                    <div class="campo">
+                        <span>Valor do empréstimo</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.valor_formatado }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                    <div class="campo">
+                        <span>Valor total a pagar</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.total_formatado }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                    <div class="campo">
+                        <span>Quantidade de parcelas</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.parcelas }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                    <div class="campo">
+                        <span>Valor de cada parcela</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.parcela_formatada }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                    <div class="campo">
+                        <span>Data da contratação</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.data }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                    <div class="campo">
+                        <span>Status do empréstimo</span>
+                        <strong>
+                            {% if emprestimo %}
+                                {{ emprestimo.status }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao-parcelas">
+                <div class="titulo-parcelas">
+                    <h2>Lista de parcelas</h2>
+                </div>
+
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parcela</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% if emprestimo and emprestimo.lista_parcelas %}
+                                {% for parcela in emprestimo.lista_parcelas %}
+                                <tr>
+                                    <td>{{ parcela.numero }}</td>
+                                    <td>{{ parcela.vencimento }}</td>
+                                    <td>{{ parcela.valor_formatado }}</td>
+                                    <td>
+                                        <span class="status-parcela">
+                                            {{ parcela.status }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --azul: #0d5bff;
+    --texto: #123574;
+    --cinza: #8298ba;
+    --fundo: #f2f5fa;
+    --borda: #d9e5fb;
+    --branco: #ffffff;
+    --vermelho: #ff3838;
+    --vermelho-borda: #ff7777;
+    --vermelho-fundo: #fff0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* CABEÇALHO */
+
+.menu {
+    width: 100%;
+    min-height: 82px;
+    padding: 12px 5.3%;
+    background: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 2px 5px #12357418;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 26px;
+}
+
+.navegacao a {
+    position: relative;
+    padding: 9px 0;
+    color: #081f49;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.navegacao a:hover {
+    color: var(--azul);
+}
+
+.navegacao a.ativo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    right: -7px;
+    height: 3px;
+    border-radius: 4px;
+    background: var(--azul);
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.pagina {
+    width: 89%;
+    max-width: 1450px;
+    margin: 34px auto;
+}
+
+/* TÍTULO DA PÁGINA */
+
+.cabecalho-pagina {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 19px;
+}
+
+.icone-cabecalho {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cabecalho-pagina h1 {
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 750;
+    color: var(--texto);
+}
+
+.cabecalho-pagina p {
+    margin-top: 3px;
+    color: var(--cinza);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* BOTÃO DE DOWNLOAD PDF */
+
+.botao {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    top: -40px;
+    margin-bottom: 0;
+}
+
+.botao_pdf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 22%;
+    min-height: 30px;
+    margin-left: auto;
+    margin-top: -12px;
+    padding: 5px 20px;
+    color: var(--vermelho);
+    background: var(--vermelho-fundo);
+    border: 1px solid var(--vermelho-borda);
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.botao_pdf:hover {
+    background: #ffe2e2;
+    border-color: var(--vermelho);
+}
+
+.icone-download {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.texto-botao {
+    display: inline-block;
+}
+
+/* CARTÃO DE DETALHES */
+
+.cartao-detalhes {
+    position: relative;
+    width: 100%;
+    padding: 21px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+}
+
+/* INFORMAÇÕES DO EMPRÉSTIMO */
+
+.resumo-emprestimo h2,
+.titulo-parcelas h2 {
+    color: var(--texto);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.resumo-emprestimo h2 {
+    margin-bottom: 13px;
+}
+
+.campos-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.campo {
+    min-width: 0;
+    min-height: 66px;
+    padding: 11px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: #f8faff;
+    border: 1px solid #e6edf9;
+    border-radius: 8px;
+}
+
+.campo span {
+    color: var(--cinza);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.campo strong {
+    color: var(--texto);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* LISTA DE PARCELAS */
+
+.secao-parcelas {
+    margin-top: 23px;
+}
+
+.titulo-parcelas {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
+}
+
+.icone-parcelas {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* TABELA */
+
+.tabela-responsiva {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: #f3f7ff;
+}
+
+th,
+td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #e5ecf7;
+    font-size: 12px;
+}
+
+th {
+    color: var(--texto);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+td {
+    color: var(--cinza);
+}
+
+.status-parcela {
+    display: inline-block;
+    padding: 4px 9px;
+    background: #edf3ff;
+    border-radius: 15px;
+    color: var(--texto);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* TABLETS E TELAS MENORES */
+
+@media (max-width: 900px) {
+    .menu {
+        padding: 13px 4%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 145px;
+    }
+
+    .navegacao {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .navegacao a {
+        font-size: 13px;
+    }
+
+    .pagina {
+        width: 92%;
+        margin: 26px auto;
+    }
+
+    .botao_pdf {
+        width: 36%;
+    }
+
+    .campos-resumo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 520px) {
+    .menu {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        width: 135px;
+    }
+
+    .navegacao {
+        gap: 8px 14px;
+    }
+
+    .navegacao a {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    .pagina {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .cabecalho-pagina {
+        gap: 11px;
+        margin-bottom: 16px;
+    }
+
+    .icone-cabecalho {
+        width: 42px;
+        height: 42px;
+    }
+
+    .cabecalho-pagina h1 {
+        font-size: 20px;
+    }
+
+    .cabecalho-pagina p {
+        font-size: 12px;
+    }
+
+    .botao {
+        top: -5px;
+    }
+
+    .botao_pdf {
+        width: 55%;
+        min-height: 30px;
+        margin-top: -5px;
+        padding: 5px 8px;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .icone-download {
+        width: 14px;
+        height: 14px;
+    }
+
+    .cartao-detalhes {
+        padding: 15px 11px;
+    }
+
+    .campos-resumo {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .campo {
+        min-height: 60px;
+        padding: 10px 12px;
+    }
+
+    .campo strong {
+        font-size: 14px;
+    }
+
+    .resumo-emprestimo h2,
+    .titulo-parcelas h2 {
+        font-size: 16px;
+    }
+
+    .secao-parcelas {
+        margin-top: 19px;
+    }
+
+    th,
+    td {
+        padding: 10px 9px;
+        font-size: 11px;
+    }
+}
+
+/* CELULARES MUITO ESTREITOS */
+
+@media (max-width: 360px) {
+    .navegacao {
+        gap: 7px 10px;
+    }
+
+    .navegacao a {
+        font-size: 11px;
+    }
+
+    .cabecalho-pagina h1 {
+        font-size: 18px;
+    }
+
+    .botao_pdf {
+        width: 65%;
+        font-size: 11px;
+    }
+
+    .cartao-detalhes {
+        padding: 13px 9px;
+    }
+
+    th,
+    td {
+        padding: 9px 7px;
+        font-size: 10px;
+    }
+}
